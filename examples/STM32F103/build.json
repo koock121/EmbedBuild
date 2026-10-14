@@ -1,0 +1,56 @@
+{
+  "project": {
+    "name": "demo_f103",
+    "output_dir": "build"
+  },
+  "target": {
+    "arch": "arm",
+    "cpu": "cortex-m3",
+    "mcu": "STM32F103C8T6"
+  },
+  "toolchain": {
+    "type": "arm-gcc"
+  },
+  "build": {
+    "optimization": "-Os",
+    "std": "c11",
+    "defines": [],
+    "includes": [
+      "C:/Users/29129/Desktop/STM32/Libraries/STM32CubeF1_v183/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+      "C:/Users/29129/Desktop/STM32/Libraries/STM32CubeF1_v183/Drivers/CMSIS/Include"
+    ],
+    "sources": [
+      "main.c",
+      "startup.c"
+    ],
+    "link_flags": [
+      "-nostartfiles",
+      "-specs=nano.specs",
+      "-T",
+      "STM32F103C8Tx_FLASH.ld"
+    ],
+    "linker_script": "STM32F103C8Tx_FLASH.ld",
+    "link_tail_flags": [
+      "-lc",
+      "-lm",
+      "-lnosys"
+    ],
+    "jobs": 0
+  },
+  "artifacts": {
+    "outputs": [
+      "elf",
+      "hex",
+      "bin",
+      "map"
+    ]
+  },
+  "flash": {
+    "flasher": "openocd",
+    "config": {
+      "interface": "cmsis-dap",
+      "target": "stm32f1x",
+      "load_addr": "0x08000000"
+    }
+  }
+}

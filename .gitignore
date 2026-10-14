@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+build/
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+.pytest_cache/
+*.egg-info/

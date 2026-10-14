@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "embedbuild"
+version = "0.1.0"
+description = "通用嵌入式构建工具：多架构编译/链接/烧录，Keil 替代，支持 CLI / Python / MCP 三种接口"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "EmbedBuild" }]
+keywords = ["embedded", "build", "toolchain", "arm", "riscv", "keil", "flash", "mcp", "stm32"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Build Tools",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0.0"]
+serial = ["pyserial>=3.5"]
+
+[project.scripts]
+embedbuild = "embedbuild.cli:main"
+
+[project.urls]
+Homepage = "https://example.com/embedbuild"
+
+[tool.setuptools]
+packages = [
+    "embedbuild",
+    "embedbuild.core",
+    "embedbuild.plugins",
+    "embedbuild.plugins.toolchains",
+    "embedbuild.plugins.flashers",
+    "embedbuild.keil",
+    "embedbuild.utils",
+]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.md"]
